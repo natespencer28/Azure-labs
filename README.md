@@ -18,6 +18,11 @@ https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/
 ## 1. Administer Identity
 - [X] **Lab 01:** Manage Microsoft Entra ID Identities
 
+This lab was pretty simple as it is skils that I do daily. I essentially was tasked with creating a normal cloud user along with inviting an external user to my tenant. Lastly, I created a group with both the user that I created.
+
+<img width="725" alt="image" src="https://github.com/user-attachments/assets/e4bc50a5-7091-48b6-8e66-af020b717a1f" />
+
+
 ## 2. Administer Governance and Compliance
 - [ ] **Lab 02a:** Manage Subscriptions and RBAC  
 - [ ] **Lab 02b:** Manage Governance via Azure Policy
