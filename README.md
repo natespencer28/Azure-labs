@@ -16,7 +16,7 @@ I created an Azure budget (See below) and set up some alerts so I know when I am
 https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/
 
 ## 1. Administer Identity
-- [ ] **Lab 01:** Manage Microsoft Entra ID Identities
+- [X] **Lab 01:** Manage Microsoft Entra ID Identities
 
 ## 2. Administer Governance and Compliance
 - [ ] **Lab 02a:** Manage Subscriptions and RBAC  
