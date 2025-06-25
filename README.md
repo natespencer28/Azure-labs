@@ -29,7 +29,7 @@ This lab was pretty simple as it incorporates skills that I preform daily. I ess
 In this lab I learned more about Subscriptions/Management Groups. I learned that Subscriptions are used as silos to differentiate spending. Management groups are used as containers to organize those subscriptions and subsequent resource groups/resources. 
 <img width="562" alt="image" src="https://github.com/user-attachments/assets/246b6d70-b0e8-4f55-bf56-fa8eb1e9458f" />
 
-I also created custom RBAC role and assigned it to my IT Lab Admins group inside my Management Group. 
+I also created custom RBAC role and assigned it to my IT Lab Admins group. 
 <img width="856" alt="image" src="https://github.com/user-attachments/assets/e0bfe5d8-b325-4192-bddc-b7169004b6b5" />
 
 
