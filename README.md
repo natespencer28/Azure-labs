@@ -35,7 +35,7 @@ In this lab I learned more about Subscriptions/Management Groups. I learned that
 
 - [X] **Lab 02b:** Manage Governance via Azure Policy
 
-In this lab I learned more about adding a tags to a Resource Group and how to configure Azure Policy to enforce a tag called "Cost Center" on a resource group
+In this lab I learned more about adding a tags to a Resource Group and how to configure Azure Policy to enforce a tag called "Cost Center" on a resources inside my Resource Group. 
 <img width="948" alt="image" src="https://github.com/user-attachments/assets/62d0fabf-cd50-4d62-8d79-81eab64e4013" />
 
 
