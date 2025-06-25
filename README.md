@@ -33,7 +33,12 @@ In this lab I learned more about Subscriptions/Management Groups. I learned that
 <img width="856" alt="image" src="https://github.com/user-attachments/assets/e0bfe5d8-b325-4192-bddc-b7169004b6b5" />
 
 
-- [ ] **Lab 02b:** Manage Governance via Azure Policy
+- [X] **Lab 02b:** Manage Governance via Azure Policy
+
+In this lab I learned more about adding a tags to a Resource Group and how to configure Azure Policy to enforce a tag called "Cost Center" on a resource group
+<img width="948" alt="image" src="https://github.com/user-attachments/assets/62d0fabf-cd50-4d62-8d79-81eab64e4013" />
+
+
 
 ## 3. Administer Azure Resources
 - [ ] **Lab 03:** Manage Azure resources by using Azure Resource Manager Templates
