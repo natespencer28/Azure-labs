@@ -11,7 +11,7 @@
     },
     "vmName": {
       "type": "string",
-      "defaultValue": "ubu-22-04-01",
+      "defaultValue": "win-iaas-01",
       "metadata": {
         "description": "Name of the virtual machine."
       }
@@ -20,7 +20,7 @@
       "type": "string",
       "defaultValue": "localadmin",
       "metadata": {
-        "description": "Administrator (Linux) username for the VM."
+        "description": "Administrator username for the VM."
       }
     },
     "adminPassword": {
@@ -31,14 +31,14 @@
     },
     "vmSize": {
       "type": "string",
-      "defaultValue": "Standard_B1s",
+      "defaultValue": "Standard_B2ms",
       "metadata": {
         "description": "Size of the virtual machine."
       }
     },
     "vnetName": {
       "type": "string",
-      "defaultValue": "vnet-01",
+      "defaultValue": "vnet-hub-01",
       "metadata": {
         "description": "Name of the Virtual Network."
       }
@@ -73,37 +73,37 @@
     },
     "publicIpName": {
       "type": "string",
-      "defaultValue": "pip-ubu-22-04-01",
+      "defaultValue": "pip-win-iaas-01",
       "metadata": {
         "description": "Name of the Public IP address."
       }
     },
     "dnsLabelPrefix": {
       "type": "string",
-      "defaultValue": "ubu-iac-demo",
+      "defaultValue": "win-iaas-demo",
       "metadata": {
         "description": "DNS label prefix for the public IP. Must be globally unique within the Azure region."
       }
     },
     "imagePublisher": {
       "type": "string",
-      "defaultValue": "Canonical",
+      "defaultValue": "MicrosoftWindowsServer",
       "metadata": {
-        "description": "Image publisher. For Ubuntu this is usually Canonical."
+        "description": "Image publisher. For Windows Server this is usually MicrosoftWindowsServer."
       }
     },
     "imageOffer": {
       "type": "string",
-      "defaultValue": "UbuntuServer",
+      "defaultValue": "WindowsServer",
       "metadata": {
-        "description": "Image offer for Ubuntu Server."
+        "description": "Image offer. For Windows Server this is usually WindowsServer."
       }
     },
     "imageSku": {
       "type": "string",
-      "defaultValue": "22_04-lts-gen2",
+      "defaultValue": "2022-datacenter-azure-edition",
       "metadata": {
-        "description": "Image SKU, e.g. 22_04-lts for Ubuntu 22.04 LTS."
+        "description": "Image SKU. Update to the Windows Server 2025 SKU when confirmed for your region."
       }
     },
     "imageVersion": {
@@ -166,17 +166,17 @@
       "properties": {
         "securityRules": [
           {
-            "name": "Allow-SSH-From-Internet",
+            "name": "Allow-RDP-From-Internet",
             "properties": {
               "priority": 1000,
               "access": "Allow",
               "direction": "Inbound",
               "protocol": "Tcp",
               "sourcePortRange": "*",
-              "destinationPortRange": "22",
+              "destinationPortRange": "3389",
               "sourceAddressPrefix": "*",
               "destinationAddressPrefix": "*",
-              "description": "Allow SSH (port 22) from the internet. In production, restrict this to specific IP ranges or use a Bastion host."
+              "description": "Allow RDP from the internet. In production, restrict this to specific IP ranges or use a Bastion host."
             }
           }
         ]
@@ -255,8 +255,9 @@
           "computerName": "[parameters('vmName')]",
           "adminUsername": "[parameters('adminUsername')]",
           "adminPassword": "[parameters('adminPassword')]",
-          "linuxConfiguration": {
-            "disablePasswordAuthentication": false
+          "windowsConfiguration": {
+            "provisionVMAgent": true,
+            "enableAutomaticUpdates": true
           }
         },
         "storageProfile": {
