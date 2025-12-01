@@ -11,7 +11,7 @@
     },
     "vmName": {
       "type": "string",
-      "defaultValue": "win-2022-01",
+      "defaultValue": "ubu-22-04-01",
       "metadata": {
         "description": "Name of the virtual machine."
       }
@@ -20,7 +20,7 @@
       "type": "string",
       "defaultValue": "localadmin",
       "metadata": {
-        "description": "Administrator username for the VM."
+        "description": "Administrator (Linux) username for the VM."
       }
     },
     "adminPassword": {
@@ -73,37 +73,37 @@
     },
     "publicIpName": {
       "type": "string",
-      "defaultValue": "pip-win-2022-01",
+      "defaultValue": "pip-ubu-22-04-01",
       "metadata": {
         "description": "Name of the Public IP address."
       }
     },
     "dnsLabelPrefix": {
       "type": "string",
-      "defaultValue": "win-iac-demo",
+      "defaultValue": "ubu-iac-demo",
       "metadata": {
         "description": "DNS label prefix for the public IP. Must be globally unique within the Azure region."
       }
     },
     "imagePublisher": {
       "type": "string",
-      "defaultValue": "MicrosoftWindowsServer",
+      "defaultValue": "Canonical",
       "metadata": {
-        "description": "Image publisher. For Windows Server this is usually MicrosoftWindowsServer."
+        "description": "Image publisher. For Ubuntu this is usually Canonical."
       }
     },
     "imageOffer": {
       "type": "string",
-      "defaultValue": "WindowsServer",
+      "defaultValue": "UbuntuServer",
       "metadata": {
-        "description": "Image offer. For Windows Server this is usually WindowsServer."
+        "description": "Image offer for Ubuntu Server."
       }
     },
     "imageSku": {
       "type": "string",
-      "defaultValue": "2022-datacenter-g2",
+      "defaultValue": "22_04-lts",
       "metadata": {
-        "description": "Image SKU. Update to the Windows Server 2025 SKU when confirmed for your region."
+        "description": "Image SKU, e.g. 22_04-lts for Ubuntu 22.04 LTS."
       }
     },
     "imageVersion": {
@@ -166,17 +166,17 @@
       "properties": {
         "securityRules": [
           {
-            "name": "Allow-RDP-From-Internet",
+            "name": "Allow-SSH-From-Internet",
             "properties": {
               "priority": 1000,
               "access": "Allow",
               "direction": "Inbound",
               "protocol": "Tcp",
               "sourcePortRange": "*",
-              "destinationPortRange": "3389",
+              "destinationPortRange": "22",
               "sourceAddressPrefix": "*",
               "destinationAddressPrefix": "*",
-              "description": "Allow RDP from the internet. In production, restrict this to specific IP ranges or use a Bastion host."
+              "description": "Allow SSH (port 22) from the internet. In production, restrict this to specific IP ranges or use a Bastion host."
             }
           }
         ]
@@ -201,105 +201,3 @@
         }
       },
       "tags": {
-        "Environment": "[parameters('environmentTag')]",
-        "Owner": "[parameters('ownerTag')]"
-      }
-    },
-    {
-      "type": "Microsoft.Network/networkInterfaces",
-      "apiVersion": "2022-09-01",
-      "name": "[variables('nicName')]",
-      "location": "[parameters('location')]",
-      "dependsOn": [
-        "[resourceId('Microsoft.Network/virtualNetworks', parameters('vnetName'))]",
-        "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('nsgName'))]",
-        "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIpName'))]"
-      ],
-      "properties": {
-        "ipConfigurations": [
-          {
-            "name": "ipconfig1",
-            "properties": {
-              "subnet": {
-                "id": "[variables('subnetRef')]"
-              },
-              "privateIPAllocationMethod": "Dynamic",
-              "publicIPAddress": {
-                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIpName'))]"
-              }
-            }
-          }
-        ],
-        "networkSecurityGroup": {
-          "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('nsgName'))]"
-        }
-      },
-      "tags": {
-        "Environment": "[parameters('environmentTag')]",
-        "Owner": "[parameters('ownerTag')]"
-      }
-    },
-    {
-      "type": "Microsoft.Compute/virtualMachines",
-      "apiVersion": "2023-09-01",
-      "name": "[parameters('vmName')]",
-      "location": "[parameters('location')]",
-      "dependsOn": [
-        "[resourceId('Microsoft.Network/networkInterfaces', variables('nicName'))]"
-      ],
-      "properties": {
-        "hardwareProfile": {
-          "vmSize": "[parameters('vmSize')]"
-        },
-        "osProfile": {
-          "computerName": "[parameters('vmName')]",
-          "adminUsername": "[parameters('adminUsername')]",
-          "adminPassword": "[parameters('adminPassword')]",
-          "windowsConfiguration": {
-            "provisionVMAgent": true,
-            "enableAutomaticUpdates": true
-          }
-        },
-        "storageProfile": {
-          "imageReference": {
-            "publisher": "[parameters('imagePublisher')]",
-            "offer": "[parameters('imageOffer')]",
-            "sku": "[parameters('imageSku')]",
-            "version": "[parameters('imageVersion')]"
-          },
-          "osDisk": {
-            "createOption": "FromImage",
-            "managedDisk": {
-              "storageAccountType": "Premium_LRS"
-            }
-          }
-        },
-        "networkProfile": {
-          "networkInterfaces": [
-            {
-              "id": "[resourceId('Microsoft.Network/networkInterfaces', variables('nicName'))]"
-            }
-          ]
-        }
-      },
-      "tags": {
-        "Environment": "[parameters('environmentTag')]",
-        "Owner": "[parameters('ownerTag')]"
-      }
-    }
-  ],
-  "outputs": {
-    "vmName": {
-      "type": "string",
-      "value": "[parameters('vmName')]"
-    },
-    "publicIpAddress": {
-      "type": "string",
-      "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIpName'))).ipAddress]"
-    },
-    "fqdn": {
-      "type": "string",
-      "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIpName'))).dnsSettings.fqdn]"
-    }
-  }
-}
