@@ -11,7 +11,7 @@
     },
     "vmName": {
       "type": "string",
-      "defaultValue": "win-iaas-01",
+      "defaultValue": "win-2022-01",
       "metadata": {
         "description": "Name of the virtual machine."
       }
@@ -38,7 +38,7 @@
     },
     "vnetName": {
       "type": "string",
-      "defaultValue": "vnet-hub-01",
+      "defaultValue": "vnet-01",
       "metadata": {
         "description": "Name of the Virtual Network."
       }
@@ -73,14 +73,14 @@
     },
     "publicIpName": {
       "type": "string",
-      "defaultValue": "pip-win-iaas-01",
+      "defaultValue": "pip-win-2022-01",
       "metadata": {
         "description": "Name of the Public IP address."
       }
     },
     "dnsLabelPrefix": {
       "type": "string",
-      "defaultValue": "win-iaas-demo",
+      "defaultValue": "win-iac-demo",
       "metadata": {
         "description": "DNS label prefix for the public IP. Must be globally unique within the Azure region."
       }
@@ -101,7 +101,7 @@
     },
     "imageSku": {
       "type": "string",
-      "defaultValue": "2022-datacenter-azure-edition",
+      "defaultValue": "2022-datacenter-g2",
       "metadata": {
         "description": "Image SKU. Update to the Windows Server 2025 SKU when confirmed for your region."
       }
