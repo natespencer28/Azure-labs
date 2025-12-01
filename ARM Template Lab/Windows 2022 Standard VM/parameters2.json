@@ -3,10 +3,10 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "location": {
-      "value": "centralus"
+      "value": "eastus"
     },
     "vmName": {
-      "value": "win2022-demo-01"
+      "value": "ubu-demo-01"
     },
     "adminUsername": {
       "value": "localadmin"
@@ -33,24 +33,19 @@
       "value": "nsg-servers-demo"
     },
     "publicIpName": {
-      "value": "pip-win2025-demo-01"
+      "value": "pip-ubu-demo-01"
     },
     "dnsLabelPrefix": {
-      "value": "win2025-demo-nate" 
+      "value": "ubu-demo-nate"
     },
     "imagePublisher": {
-      "value": "MicrosoftWindowsServer"
+      "value": "Canonical"
     },
     "imageOffer": {
-      "value": "WindowsServer"
+      "value": "UbuntuServer"
     },
     "imageSku": {
-      "value": "2022-datacenter-g2"
-      /*
-        TODO: Replace this with the Windows Server 2025 SKU
-        once you confirm it for your region using:
-        az vm image list --publisher MicrosoftWindowsServer --offer WindowsServer -o table
-      */
+      "value": "22_04-lts"
     },
     "imageVersion": {
       "value": "latest"
@@ -63,4 +58,3 @@
     }
   }
 }
-
