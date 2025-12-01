@@ -101,7 +101,7 @@
     },
     "imageSku": {
       "type": "string",
-      "defaultValue": "22_04-lts",
+      "defaultValue": "22_04-lts-gen2",
       "metadata": {
         "description": "Image SKU, e.g. 22_04-lts for Ubuntu 22.04 LTS."
       }
