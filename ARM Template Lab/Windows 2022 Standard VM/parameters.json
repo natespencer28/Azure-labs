@@ -1,0 +1,66 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "value": "eastus"
+    },
+    "vmName": {
+      "value": "win2022-demo-01"
+    },
+    "adminUsername": {
+      "value": "localadmin"
+    },
+    "adminPassword": {
+      "value": "P@ssw0rd!ChangeMeNow123"
+    },
+    "vmSize": {
+      "value": "Standard_B2ms"
+    },
+    "vnetName": {
+      "value": "vnet-demo-01"
+    },
+    "vnetAddressPrefix": {
+      "value": "10.20.0.0/16"
+    },
+    "subnetName": {
+      "value": "subnet-servers"
+    },
+    "subnetPrefix": {
+      "value": "10.20.1.0/24"
+    },
+    "nsgName": {
+      "value": "nsg-servers-demo"
+    },
+    "publicIpName": {
+      "value": "pip-win2025-demo-01"
+    },
+    "dnsLabelPrefix": {
+      "value": "win2025-demo-nate" 
+    },
+    "imagePublisher": {
+      "value": "MicrosoftWindowsServer"
+    },
+    "imageOffer": {
+      "value": "WindowsServer"
+    },
+    "imageSku": {
+      "value": "2022-datacenter-g2"
+      /*
+        TODO: Replace this with the Windows Server 2025 SKU
+        once you confirm it for your region using:
+        az vm image list --publisher MicrosoftWindowsServer --offer WindowsServer -o table
+      */
+    },
+    "imageVersion": {
+      "value": "latest"
+    },
+    "environmentTag": {
+      "value": "Dev"
+    },
+    "ownerTag": {
+      "value": "Nate-Spencer"
+    }
+  }
+}
+
