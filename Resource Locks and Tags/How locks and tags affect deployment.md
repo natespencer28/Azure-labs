@@ -1,6 +1,6 @@
 # How Locks and Tagging Affects Deployments
 
-This repository demonstrates how to:
+This file demonstrates: 
 1. Add a tag to a Resource Group.
 2. Apply a **Read-Only lock** and attempt to deploy a VM to the locked resource group.
 3. Apply a **Delete lock** and attempt to deploy a VM to the locked resource group.
