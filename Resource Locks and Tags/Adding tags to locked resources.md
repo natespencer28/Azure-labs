@@ -19,7 +19,8 @@
 
 ### Screenshot
 
-*Add a screenshot showing the Read-Only lock applied.*
+<img width="990" height="170" alt="image" src="https://github.com/user-attachments/assets/6e61e555-6b20-4ed3-9c8a-5c3f3872f80e" />
+
 
 ---
 
@@ -41,7 +42,7 @@
 
 ### Screenshot
 
-*Add a screenshot showing the Delete lock applied.*
+<img width="983" height="130" alt="image" src="https://github.com/user-attachments/assets/71de13af-6990-4aed-9c95-fa48f5ccae6a" />
 
 ---
 
@@ -60,7 +61,8 @@
 
 ### Screenshot
 
-*Add a screenshot showing the tag update attempt.*
+<img width="820" height="193" alt="image" src="https://github.com/user-attachments/assets/b01334ec-e6ee-44b1-a0e4-d183f43db108" />
+
 
 ---
 
@@ -80,11 +82,5 @@
 * **Read-Only lock:** ❌ Tag update should fail
 * **Delete lock:** ✅ Tag update should succeed
 
-### Screenshot
 
-*Add screenshots showing tag results for both locked VMs.*
-
----
-
-If you'd like, I can also merge these with your earlier sections into one complete polished README.
 
