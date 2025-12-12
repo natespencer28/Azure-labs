@@ -40,6 +40,10 @@ To support centralized file storage and future backup and recovery testing, you 
 4. Click **Review + create**.
 5. Select **Create**.
 
+<img width="992" height="344" alt="image" src="https://github.com/user-attachments/assets/18f9e19a-ce8a-4384-9407-1956c08f07f1" />
+
+
+
 ---
 
 ### 2️⃣ Access the Storage Account
@@ -54,6 +58,8 @@ To support centralized file storage and future backup and recovery testing, you 
    - **Name:** `fileshare1`
 3. Click **Review + create**.
 4. Select **Create**.
+
+<img width="1434" height="324" alt="image" src="https://github.com/user-attachments/assets/c68f47a2-90de-4316-8eae-e7758008c43e" />
 
 ---
 
